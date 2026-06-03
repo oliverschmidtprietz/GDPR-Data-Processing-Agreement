@@ -1,5 +1,7 @@
 # DPA Art. 28 GDPR — Deployment Guide
 
+> 📄 **[View the interactive skill page →](https://oliverschmidtprietz.github.io/GDPR-Data-Processing-Agreement/)**
+
 See [CHANGELOG.md](CHANGELOG.md) for version history.
 
 ## Overview
