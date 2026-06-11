@@ -4,7 +4,7 @@ description: Use this skill when the user needs to review, draft, or redline a D
 metadata:
   author: Oliver Schmidt-Prietz
   license: AGPL-3.0
-  version: 1.0
+  version: 1.1
 ---
 
 # DPA Art. 28 GDPR — Review, Drafting & Redlining
@@ -17,6 +17,14 @@ This skill governs all work on **controller–processor contracts (Art. 28 GDPR)
 - **Drafts** of new DPAs / AVVs from modular templates (DE / EN)
 - **Redlines** in response to counterparty drafts
 - **Joint Controller Agreements** (JCA / Art.-26-Vereinbarung)
+
+## Who this is for, and what kind of work this is
+
+**Operator.** This skill is written for a **privacy or commercial lawyer, or a trained paralegal working under attorney supervision** — someone who can read a DPA clause and exercise judgement on the output, not a lay business user. It assumes legal literacy but **no special AI fluency** beyond describing the scenario and the side you act for in plain language.
+
+**Work shape.** The work is **bounded and transactional**: a single contract (or counterparty draft) reviewed, drafted, or redlined against a fixed Art. 28 / Art. 26 benchmark, clause by clause — pattern-matched against known requirements and defect catalogues, not open-ended advisory. That bounded shape is what lets the skill take a structured, checklist-driven posture; anything outside the pattern (novel structures, contested law, transfer-risk judgement calls) is surfaced and handed back, not resolved silently.
+
+**Status of the output.** What this skill produces is **drafting and review support — not legal advice, and not in itself a privileged work product.** Treat storage, sharing, and retention per your firm's work-product and privilege policy; the attorney–client relationship and any privilege attach through the supervising lawyer, not through this skill.
 
 ## Mode router — ALWAYS run first
 

@@ -6,6 +6,18 @@ Format: `## [vX.Y] — YYYY-MM-DD`
 
 ---
 
+## [v1.1] — 2026-06-11
+
+Additive audience-clarity + delegation-posture guidance from the LegalQuants QA review (PR #6). No change to the mode router, Art. 28(3) review logic, templates, or risk scoring.
+
+- **"Who this is for" section.** Names the intended operator (privacy/commercial lawyer, or a trained paralegal under attorney supervision) and assumed AI-fluency, so the skill's conservative calibration is intentional rather than inferred.
+- **Work shape stated explicitly.** Names the work as bounded-transactional, pattern-matched review against a fixed Art. 28 / Art. 26 benchmark — making the conservative-vs-autonomous posture auditable.
+- **Privilege / work-product note.** One line clarifying the output is drafting and review support, not legal advice and not in itself a privileged work product; storage per the firm's work-product policy.
+
+**Status:** reviewed (carried from v1.0) — additive documentation, no behavioral change.
+
+---
+
 ## [v1.0] — 2026-05-14
 
 First **reviewed** release. Eval pass via `/skill-creator` confirmed skill value against no-skill baseline.
