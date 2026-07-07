@@ -150,9 +150,9 @@ When entering any mode, load files in this order:
 ## Out of scope (do not silently expand into these)
 
 - Standalone TOMs drafting beyond the Annex 2 scaffold (use Art. 32-specific guidance).
-- Full TIA (Transfer Impact Assessment) documents — flag the requirement and reference TIA Skill if available.
-- DPIA documents — reference the DPIA Navigator skill.
-- Records of Processing (Verzeichnis von Verarbeitungstätigkeiten) — separate task.
+- Full TIA (Transfer Impact Assessment) documents — flag the requirement and reference the `tia` skill.
+- DPIA documents — reference the `dpia-sentinel` skill.
+- Records of Processing (Verzeichnis von Verarbeitungstätigkeiten) — separate task; reference the `ropa` skill.
 - Substantive data-subject-rights workflows — reference dedicated skill if available.
 
 If the user asks for any of the above, surface that this skill ends at the DPA boundary and offer to switch.
