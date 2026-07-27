@@ -4,7 +4,7 @@ description: Use this skill when the user needs to review, draft, or redline a D
 metadata:
   author: Oliver Schmidt-Prietz
   license: AGPL-3.0
-  version: 1.1
+  version: 1.2
 ---
 
 # DPA Art. 28 GDPR — Review, Drafting & Redlining
@@ -59,7 +59,7 @@ Regardless of mode:
 
 - **Never produce a DPA or review without confirming roles.** Mis-classifying a controller–controller relationship as controller–processor produces an invalid agreement and creates liability exposure on both sides.
 - **Never paste templates verbatim without scenario tailoring.** Annex 1 (processing description) MUST reflect the actual processing — generic placeholders defeat Art. 28(3) chapeau.
-- **Never omit Annex 2 (TOMs).** A DPA without specified TOMs fails Art. 28(3)(c) + Art. 32. If the user does not have TOMs ready, advise them to obtain the processor's TOMs document or use the template scaffold as a starting point, but flag this as an open item — never sign-off on an empty Annex 2.
+- **Never omit Annex 2 (TOMs).** A DPA without specified TOMs fails Art. 28(3)(c) + Art. 32. If the user does not have TOMs ready, advise them to obtain the processor's TOMs document or use the template scaffold as a starting point, but flag this as an open item — never sign-off on an empty Annex 2. **Producing the TOM content itself is the `toms-art32` skill's job**, not this one: route there for the substance and bring the annex back into the instrument (see *Out of scope*).
 - **Sub-processor list (Annex 3) cannot be empty if sub-processors exist.** "None at signing" is acceptable only if literally none; otherwise list them by name, location, processing activity, and safeguards.
 - **International-transfer language is binding only if SCCs are actually executed.** Do not draft "the Parties agree to use the SCCs" without specifying module, signature mechanism (separate signature vs. docking via DPA), and Annexes I.A / I.B / I.C / II / III.
 - **Joint-controller scenarios are NOT processor scenarios.** If the screen flags JC, switch to `JOINT_CONTROLLER` mode. Papering a JC arrangement as a DPA is a substantive defect, not a drafting choice.
@@ -97,7 +97,7 @@ When entering any mode, load files in this order:
 3. **Clause-by-clause table**: clause # | obligation in scope | current text gist | issue | risk tier (1 = blocker / 2 = material / 3 = polish) | proposed fix.
 4. **Annex review**:
    - Annex 1 (processing description) — sufficient detail for Art. 28(3) chapeau?
-   - Annex 2 (TOMs) — concrete, measurable, mapped to Art. 32(1)(a)–(d)?
+   - Annex 2 (TOMs) — concrete, measurable, mapped to Art. 32(1)(a)–(d)? (Contractual sufficiency is judged here; whether the measures are *appropriate to the risk* and actually in force is a `toms-art32` question — flag and route, do not assess it in the redline.)
    - Annex 3 (sub-processors) — list current and define notification/objection mechanism?
    - Annex 4 (transfers + SCCs) — module, Annexes I–III, TIA?
 5. **Negotiation strategy**: must-have / should-have / nice-to-have, sequenced for the actual negotiation.
@@ -149,7 +149,7 @@ When entering any mode, load files in this order:
 
 ## Out of scope (do not silently expand into these)
 
-- Standalone TOMs drafting beyond the Annex 2 scaffold (use Art. 32-specific guidance).
+- Standalone TOMs drafting, assessment or lifecycle work beyond the Annex 2 scaffold — reference the `toms-art32` skill. **The boundary:** this skill owns the *instrument* (does the agreement bind the processor to specified measures, is the annex contractually sufficient, what does the counterparty have to warrant). `toms-art32` owns the *substance* (the Art. 32(1) appropriateness test, the control catalogue, measure ownership and implementation status, evidence and effectiveness testing) and generates the export-eligible annex text — bespoke DPA TOM annex, Decision 2021/915 Art. 28 SCC Annex III, Decision 2021/914 transfer-SCC Annex II. Take its output into the agreement; do not re-derive it here, and do not warrant measures this skill has not seen assessed.
 - Full TIA (Transfer Impact Assessment) documents — flag the requirement and reference the `tia` skill.
 - DPIA documents — reference the `dpia-sentinel` skill.
 - Records of Processing (Verzeichnis von Verarbeitungstätigkeiten) — separate task; reference the `ropa` skill.
