@@ -2,7 +2,7 @@
 
 This template implements the requirements of Art. 26 GDPR for joint controllers. It is **not** an Art. 28 / DPA template — the obligations under Art. 28(3)(a)–(h) do not apply between joint controllers.
 
-If the relationship turns out to be controller–processor (not joint control), use one of the controller-processor templates instead — `templates/dpa-commercial-en.md` (Tier 1), `templates/dpa-strict-en.md` (Tier 2, 2021/915 unmodified), or `templates/dpa-hybrid-en.md` (Tier 3, Sections I+II of 2021/915 + custom Section III). See `references/tier-selection.md` for tier choice. Run the screen test in `references/art26-joint-controller.md` before using this template.
+If the relationship turns out to be controller–processor (not joint control), use one of the controller-processor templates instead — `templates/dpa-commercial-en.md` (Tier 1), `templates/dpa-strict-en.md` (Tier 2, 2021/915 unmodified, minimal commercial overlay), or `templates/dpa-hybrid-en.md` (Tier 3, 2021/915 unmodified — Sections I, II and III — with an extensive commercial framework layer outside the Clauses). See `references/tier-selection.md` for tier choice. Run the screen test in `references/art26-joint-controller.md` before using this template.
 
 ---
 

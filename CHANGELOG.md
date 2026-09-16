@@ -6,6 +6,29 @@ Format: `## [vX.Y] — YYYY-MM-DD`
 
 ---
 
+## [v1.4] — 2026-09-15
+
+Legal-drafting correction to the Tier 3 (Hybrid) template architecture, prompted by finding 6 of the external adversarial review (`docs/projects/gdpr-skills-marathon/ADVERSARIAL-REVIEW-2026-09-08.md`) against the EUR-Lex text of Commission Implementing Decision (EU) 2021/915.
+
+- **Hybrid tier restructured — Section III is never replaced.** The prior architecture (`templates/dpa-hybrid-{en,de}.md`) deleted Section III of the Clauses (Clause 10 — non-compliance and termination) and substituted negotiated term/termination/liability provisions, describing this as "permitted under Clause 2(b)". That was wrong: Clause 2(a) bars modifying the Clauses (all of them, not just Sections I–II) except to complete or update the Annexes; Clause 2(b) permits only *adding* clauses or safeguards that do not contradict the Clauses. Replacing a Clause is not an addition. The templates are rebuilt to keep Sections I, II **and** III of the Clauses fully intact (same incorporation as Tier 2), with all commercial terms (term, commercial termination rights, transition assistance, liability allocation, indemnification, insurance) moved into a new Section 4 "Commercial framework terms (outside the Clauses)" that Clause 2(b) does permit. Section 4 carries an explicit non-contradiction guard clause (4.1): commercial termination rights are in addition to, and never replace, Clause 10; liability caps never limit the Processor's obligations under the Clauses or the Parties' Article 82 liability to data subjects; nothing in Section 4 modifies, amends, or narrows Sections I, II or III. A "Presumption of compliance" note is added: because the Clauses are now unmodified in full, Tier 3 carries the same full Art. 28(7) presumption as Tier 2 — the two tiers differ only in how extensive the additive Section 4 layer is, not in presumption strength.
+- **Clause 2(a)/2(b) labels corrected.** `references/sccs-module-guide.md` had the two halves of Clause 2 backwards (attributing the "adding clauses/additional safeguards" permission to 2(a) instead of 2(b), and conflating it with the unrelated Clause 5 docking mechanism). Corrected.
+- **Reference and workflow files reconciled to the new architecture**: `references/2021-915-commission-text-{en,de}.md` (Section III clause-map entries + load-order notes), `references/tier-selection.md` (tier comparison table, decision tree Q3, defaults, "what changes between tiers" table, common-misuses list — Tier 3's compliance presumption is now stated as full, not partial), `SKILL.md` (tier description in intake item 4), `workflows/draft.md` (tier table, template selection table, tier-aware quality gates), `templates/dpa-strict-{en,de}.md` and `templates/jca-en.md` (cross-references to Tier 3 updated to the new description). No eval assertion encoded the old claim, so `evals/evals.json` required no change.
+- **Special-category free-text intake question added.** `SKILL.md`'s "Intake — ALWAYS gather" block gains item 9: for Annex I / the categories-of-data description, ask what free-text or unstructured inputs the processing includes, whether any real control (not just a policy) catches special-category content in them, and whether such content has actually been observed — with the rule that unfiltered data-subject/staff-facing free-text channels should be described as potentially containing special-category data.
+
+**Status:** reviewed — legal-drafting correction (hybrid-tier architecture) + intake addition; no change to the mode router or REVIEW/REDLINE review logic.
+
+---
+
+## [v1.3] — 2026-08-21
+
+Portfolio audit fix (source: `AUDIT-2026-08-19.md`). Reference-doc correction only — no change to the mode router, Art. 28(3)/Art. 26 review logic, templates, or workflows.
+
+- **CF-21.** `references/sccs-module-guide.md`'s special-status table had hedged the UK adequacy renewal as still pending, framing a settled fact as an open question. The original UK adequacy decisions sunset in June 2025; the European Commission renewed them by Implementing Decision under Art. 45(3) GDPR adopted 19 December 2025, valid until 27 December 2031. The row now states the sunset, the renewal date, and the 27 December 2031 expiry, with a "monitor before expiry" note replacing the old hedged language.
+
+**Status:** reviewed — documentation-only correction; no behavioral change.
+
+---
+
 ## [v1.2] — 2026-07-25
 
 Routes Article 32 security-of-processing work to the `toms-art32` skill. Part of the coordinated **sibling-routing pass** (`ropa` v2.15, `dpia-sentinel` v1.11, `dpa-art28` v1.2, `breach-sentinel` v3.3, `tia` v1.3) that closes the toms-art32 portfolio-integration gate recorded as Finding 1 in `docs/projects/gdpr-skills-marathon/ROADMAP-2026-07-25.md`. Routing pointers only — no Article 32 methodology is duplicated into any sibling.

@@ -176,7 +176,7 @@ Die acht Unterklauseln der Klausel 7 setzen die Pflichten aus Art. 28 Abs. 3 lit
 
 **Wahlmöglichkeiten.** Keine im Text der Klausel 10.
 
-**Fallstrick (und der Grund für Tier 3 / Hybrid).** Die Beendigungsmechanik der Klausel 10 ist sparsam und deckt kommerzielle Anliegen nicht ab: Laufzeit, ordentliche Kündigung, Übergabeunterstützung, Haftung nach Beendigung, anwendbares Recht, Streitbeilegung. **Tier 2 (Strict)** lässt Klausel 10 unangetastet und ergänzt um ein Section-IV-Overlay für die kommerzielle Mechanik. **Tier 3 (Hybrid)** ersetzt Abschnitt III vollständig durch einen kommerziell verhandelten Beendigungs-/Laufzeit-/Haftungsabschnitt, während die Abschnitte I–II unverändert bleiben.
+**Fallstrick (und der Grund für Tier 3 / Hybrid).** Die Beendigungsmechanik der Klausel 10 ist sparsam und deckt kommerzielle Anliegen nicht ab: Laufzeit, kommerzielle Kündigungsrechte, Übergabeunterstützung, Haftung nach Beendigung, anwendbares Recht, Streitbeilegung. **Sowohl Tier 2 (Strict) als auch Tier 3 (Hybrid) lassen Klausel 10 — und alle Abschnitte I–III — unverändert.** Tier 2 ergänzt ein minimales Section-IV-Overlay für die kommerzielle Mechanik; Tier 3 ergänzt eine umfangreichere kommerzielle Rahmenebene (Abschnitt 4) (Laufzeit, kommerzielle Kündigungsrechte *zusätzlich* zu Klausel 10, Übergabeunterstützung, Haftungsverteilung, Freistellung, Versicherung), die nach Klausel 2 lit. b außerhalb der Klauseln steht und Klausel 10 niemals ersetzt, einengt oder als Ersatz dient. Eine Ersetzung von Abschnitt III (oder einer Klausel) statt einer Ergänzung daneben wäre eine Änderung nach Klausel 2 lit. a und würde die Vermutung für diesen Abschnitt aufheben — diese Architektur wird von keinem der beiden Tiers verwendet.
 
 Die materielle Pflicht aus Art. 28 Abs. 3 lit. g (Löschung oder Rückgabe nach Wahl des Verantwortlichen) **kann in keinem Tier geändert werden** — sie ist Bestandteil von Abschnitt II über Klausel 7.6 und das Zusammenspiel mit Klausel 10.
 
@@ -216,6 +216,6 @@ Siehe `references/sccs-module-guide.md` für die Modulwahl und TIA-Logik.
 ## Wo diese Datei geladen wird
 
 - `templates/dpa-strict-de.md` (Tier 2) — diese Datei vollständig laden bei Erstellung.
-- `templates/dpa-hybrid-de.md` (Tier 3) — diese Datei plus `references/negotiation-fallbacks.md` laden (für den Ersatz-Section III).
+- `templates/dpa-hybrid-de.md` (Tier 3) — diese Datei plus `references/negotiation-fallbacks.md` laden (für die kommerzielle Rahmenebene in Abschnitt 4, die außerhalb steht und Abschnitt III niemals ersetzt).
 - `workflows/draft.md` — diese Datei laden, wenn Intake-Item I-T (Tier-Wahl) = 2 oder 3.
 - `workflows/review-negotiation.md` — diese Datei laden bei Review eines auf 2021/915 basierenden Gegenentwurfs, neben `references/art28-3-checklist.md`.

@@ -12,7 +12,7 @@ The drafting cannot start until these are nailed down. If any are missing, reque
 
 | # | Field | Notes |
 |---|---|---|
-| I-T | **Tier** | Tier 1 (Commercial) / Tier 2 (Strict, 2021/915 unmodified) / Tier 3 (Hybrid, Sections I+II of 2021/915 + custom Section III). Walk decision tree in `references/tier-selection.md` if user has not pre-selected. Default for OneZero Legal advisory work: Tier 3. |
+| I-T | **Tier** | Tier 1 (Commercial) / Tier 2 (Strict, 2021/915 unmodified, minimal commercial overlay) / Tier 3 (Hybrid, 2021/915 unmodified — Sections I, II and III — with an extensive commercial framework layer outside the Clauses). Walk decision tree in `references/tier-selection.md` if user has not pre-selected. Default for OneZero Legal advisory work: Tier 3. |
 | I1 | Controller — full legal name, registered seat, registration number, signatory | |
 | I2 | Processor — same | |
 | I3 | Underlying main agreement — title, date, brief description | The DPA references the main agreement |
@@ -50,10 +50,10 @@ The tier choice (intake item I-T) determines which template variant to load. Six
 |---|---|---|
 | Tier 1 — Commercial | `templates/dpa-commercial-en.md` | `templates/dpa-commercial-de.md` |
 | Tier 2 — Strict (2021/915 unmodified) | `templates/dpa-strict-en.md` | `templates/dpa-strict-de.md` |
-| Tier 3 — Hybrid (Sections I+II of 2021/915 + custom Section III) | `templates/dpa-hybrid-en.md` | `templates/dpa-hybrid-de.md` |
+| Tier 3 — Hybrid (2021/915 unmodified — Sections I, II and III — + extensive Section 4 commercial framework layer) | `templates/dpa-hybrid-en.md` | `templates/dpa-hybrid-de.md` |
 | Joint Controller (Art. 26) | `templates/jca-en.md` | `templates/jca-de.md` |
 
-For **Tier 2 and Tier 3**, also load `references/2021-915-commission-text-{en,de}.md` (matching language) — this is the practitioner's clause map; the binding text is the OJ. For **Tier 3**, also load `references/negotiation-fallbacks.md` — the Section III replacement is fully customisable.
+For **Tier 2 and Tier 3**, also load `references/2021-915-commission-text-{en,de}.md` (matching language) — this is the practitioner's clause map; the binding text is the OJ. For **Tier 3**, also load `references/negotiation-fallbacks.md` — the Section 4 commercial framework layer (which sits outside, and never replaces, Section III) is fully customisable.
 
 **Bilingual format options** (where I15 = bilingual):
 - **Side-by-side columns**: each clause has DE in the left column and EN in the right column. Best for client deliverables and signed documents.
@@ -64,7 +64,7 @@ For **Tier 2 and Tier 3**, also load `references/2021-915-commission-text-{en,de
 ### Tier-aware quality gates before populating
 
 - **Tier 2 (Strict)**: confirm the user understands that Sections I, II, III of the 2021/915 SCCs are unmodified. The only customisation surface is (a) Section 1.4 choices (Docking, Clause 7.7 Option 1/2, time period), (b) the Annexes (Schedules 1–4), (c) Section 4 commercial overlay. Liability ALT 1 / ALT 2 in Section 4.3 is the only material commercial decision.
-- **Tier 3 (Hybrid)**: confirm Sections I and II will not be modified. Section 4 (replacement for Section III) is fully customisable. Walk Section 4 against Section II as a final consistency check before delivery — if Section 4 narrows a Section II obligation, the architecture has been violated and the user should consider Tier 1 instead.
+- **Tier 3 (Hybrid)**: confirm Sections I, II and III (including Clause 10) will not be modified — identical incorporation to Tier 2. Section 4 (commercial framework layer, sitting outside the Clauses) is fully customisable, but is always additive — it must never replace, narrow, or serve as an exclusive substitute for Clause 10 or any Section II obligation. Walk Section 4 against Clause 10 and Section II as a final consistency check before delivery — if Section 4 narrows or overrides a Clause 10 or Section II obligation, the architecture has been violated and the user should consider Tier 1 instead.
 - **Tier 1 (Commercial)**: full latitude on every clause; choose ALT 1 / ALT 2 throughout per perspective using `references/negotiation-fallbacks.md`.
 
 ## Step 3 — Populate intake into the template

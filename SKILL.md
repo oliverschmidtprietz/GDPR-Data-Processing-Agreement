@@ -4,7 +4,7 @@ description: Use this skill when the user needs to review, draft, or redline a D
 metadata:
   author: Oliver Schmidt-Prietz
   license: AGPL-3.0
-  version: 1.2
+  version: 1.4
 ---
 
 # DPA Art. 28 GDPR — Review, Drafting & Redlining
@@ -49,11 +49,12 @@ Regardless of mode:
 1. **Roles** — Who is controller, who is processor? Confirm explicitly. If both parties might be controllers, run the Art. 26 vs Art. 28 screen in `references/art26-joint-controller.md` BEFORE proceeding.
 2. **Perspective** — Which side does the user represent? (controller-favorable / processor-favorable / balanced)
 3. **Language** — DE / EN / bilingual? Default: match the language of the source document; if drafting from scratch, ASK.
-4. **Tier (DRAFT and REDLINE modes)** — Tier 1 Commercial / Tier 2 Strict (2021/915 incorporated unmodified) / Tier 3 Hybrid (Sections I+II of 2021/915 + custom Section III). Load `references/tier-selection.md` and walk the decision tree if the user has not pre-selected. For REVIEW modes, the tier is whatever the source document is — identify it and continue.
+4. **Tier (DRAFT and REDLINE modes)** — Tier 1 Commercial / Tier 2 Strict (2021/915 incorporated unmodified, minimal commercial overlay) / Tier 3 Hybrid (2021/915 incorporated unmodified — Sections I, II AND III — with an extensive commercial framework layer sitting outside the Clauses). Load `references/tier-selection.md` and walk the decision tree if the user has not pre-selected. For REVIEW modes, the tier is whatever the source document is — identify it and continue.
 5. **Processing scenario** — Concrete description: subject matter, nature, purpose, data categories, data subjects, duration. Without this, drafting is impossible and review is shallow. If missing, REQUEST it before proceeding.
 6. **International transfers** — Will personal data be transferred outside the EEA, or accessed from outside the EEA? If yes, load `references/sccs-module-guide.md` and flag SCC requirements early. Note: 2021/915 (Tiers 2/3) does not by itself cover transfers — pair with 2021/914 if needed.
 7. **Sub-processors** — General authorization, specific authorization, or none? This affects clause structure and risk profile. For Tiers 2/3, this maps to Clause 7.7 Option 1/2 of the SCCs.
 8. **Special categories / Art. 9 / Art. 10 data** — If yes, enhanced TOMs and stricter purpose limitation needed; flag at intake.
+9. **Free-text / unstructured content in the processing** — For Annex I / the categories-of-data description, ask: (1) Which free-text or unstructured inputs does the processing include (ticket bodies, chat, call notes, comments, uploads, recordings)? (2) Does any control actually prevent or catch special-category content in them (input filtering, redaction, a review step, trained staff with a check)? A policy alone is not a control. (3) Has special-category content (health, religious or philosophical belief, trade-union membership, sex life or orientation, racial or ethnic origin, political opinion, genetic or biometric data, criminal data) ever been observed in them in practice? Rule: if such channels accept input from data subjects or staff and no control catches sensitive content, treat them as potentially containing special-category data and describe them as such in Annex I / the categories of data, recording observed frequency.
 
 ## Hard rules
 

@@ -272,4 +272,4 @@ This template uses Commission Implementing Decision (EU) 2021/915 incorporated b
 
 The principal advantage of Tier 2 (Strict) is the safe-harbor effect — useful for engagements where the supervisory authority is likely to scrutinise. The trade-offs are commercial: Section 4 is deliberately thin, the Hierarchy clause (Clause 4 SCCs) silently disables conflicting main-agreement provisions, and there is no flexibility on Section II clauses.
 
-For situations needing a stronger commercial Section III (term, termination for convenience, transition, sophisticated liability allocation), use Tier 3 (Hybrid) instead — same Section I + II safe-harbor benefit, with a negotiated Section III replacement under Clause 2(b) SCCs.
+For situations needing more extensive commercial mechanics (term, commercial termination rights, transition, sophisticated liability allocation), use Tier 3 (Hybrid) instead — identical Section I–III safe-harbor benefit (the Clauses are unmodified in both tiers, including Clause 10), with a more extensive Section 4 commercial framework layer sitting outside the Clauses under Clause 2(b) SCCs. Tier 3 never replaces Section III — it only adds to it.

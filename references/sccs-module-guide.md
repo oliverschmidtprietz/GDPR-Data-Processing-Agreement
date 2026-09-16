@@ -64,7 +64,7 @@ In practice:
 
 ## What can NOT be modified in the SCCs
 
-The Implementing Decision permits adding clauses (Clause 2(a) — additional safeguards) and modifying the optional docking clause for new parties (Clause 7), but the **substantive clauses cannot be modified**. Common attempts to modify that are **not permitted**:
+The Implementing Decision permits the Parties to include the Clauses in a broader contract and to add other clauses or additional safeguards, **provided they do not contradict, directly or indirectly, the Clauses or prejudice the fundamental rights or freedoms of data subjects (Clause 2(b))**. Clause 2(a) is the other half of the same clause: the Parties undertake **not to modify** the Clauses, except to complete or update the Annexes with the required information. (Separately, Clause 5 — the optional docking clause — lets new parties accede to the Clauses by completing Annex I; that is not a Clause 2 mechanism.) But the **substantive Clauses (Sections I–III) cannot themselves be modified**. Common attempts to modify that are **not permitted**:
 
 - Capping liability of the data importer below what Clause 12 provides.
 - Diluting Clause 14 (assessment of laws of third country) by replacing it with "the parties agree no further assessment is needed".
@@ -96,7 +96,7 @@ The TIA is referenced in this DPA skill but **drafted via a separate skill** if 
 |---|---|---|
 | **Adequacy decision** (UK, Switzerland, Japan, South Korea, Canada (commercial), New Zealand, Israel, Argentina, Uruguay, Faroe Islands, Guernsey, Isle of Man, Jersey, Andorra) | **No SCCs needed** for transfers to recipients in these countries (subject to scope of decision) | Verify scope: e.g., the Japan adequacy is limited to private-sector commercial activities |
 | **EU–US Data Privacy Framework (DPF)** | Importer self-certified under DPF: **no SCCs needed**; verify certification status on the DPF list at the time of transfer | DPF replaced Privacy Shield (July 2023). DPF certifications are subject to the same Schrems-style scrutiny; some risk of future invalidation. |
-| **EU–UK** | UK adequacy decision through 27 June 2025, then likely renewed; UK is the easiest destination | Watch for renewal status |
+| **EU–UK** | Original UK adequacy decisions sunset June 2025; renewed by Commission Implementing Decision under Art. 45(3) GDPR adopted 19 December 2025, valid until 27 December 2031; UK is the easiest destination | Monitor before the 2031 expiry |
 | **Other countries (US non-DPF, India, China, etc.)** | SCCs + TIA required | China and Russia in particular: high TIA bar; supplementary measures usually required |
 
 For DPF transfers, the DPA should still address the scenario where the importer ceases to be DPF-certified — a fallback mechanism (SCCs + TIA) should be triggered.

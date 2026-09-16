@@ -176,7 +176,7 @@ The eight sub-clauses of Clause 7 implement the bulk of Art. 28(3)(a)–(h):
 
 **Choices.** None in the body of Clause 10.
 
-**Trap (and the reason for Tier 3 / Hybrid).** Clause 10's termination mechanics are sparse and do not address commercial concerns: term, termination for convenience, transition assistance, post-termination liability, governing law, dispute resolution. **Tier 2 (Strict)** keeps Clause 10 untouched and adds a Section IV overlay for the commercial mechanics. **Tier 3 (Hybrid)** replaces Section III entirely with a commercially negotiated termination/term/liability section while keeping Sections I–II locked.
+**Trap (and the reason for Tier 3 / Hybrid).** Clause 10's termination mechanics are sparse and do not address commercial concerns: term, commercial termination rights, transition assistance, post-termination liability, governing law, dispute resolution. **Both Tier 2 (Strict) and Tier 3 (Hybrid) keep Clause 10 — and all of Sections I–III — unmodified.** Tier 2 adds a minimal Section IV overlay for the commercial mechanics; Tier 3 adds a more extensive Section 4 commercial framework layer (term, commercial termination rights *in addition to* Clause 10, transition assistance, liability allocation, indemnification, insurance) that sits outside the Clauses under Clause 2(b) and never replaces, narrows, or serves as a substitute for Clause 10. Replacing Section III (or any Clause) instead of adding alongside it would be a Clause 2(a) modification and would void the presumption for that Section — that architecture is not used by either tier.
 
 The substantive Art. 28(3)(g) obligation (deletion or return at controller's choice) **cannot be modified** in either tier — it is part of Section II via Clause 7.6 and Clause 10's interaction.
 
@@ -216,6 +216,6 @@ See `references/sccs-module-guide.md` for the module decision and TIA logic.
 ## Where this file is loaded
 
 - `templates/dpa-strict-en.md` (Tier 2) — load this file in full when drafting.
-- `templates/dpa-hybrid-en.md` (Tier 3) — load this file plus `references/negotiation-fallbacks.md` (for the replacement Section III).
+- `templates/dpa-hybrid-en.md` (Tier 3) — load this file plus `references/negotiation-fallbacks.md` (for the Section 4 commercial framework layer, which sits outside and never replaces Section III).
 - `workflows/draft.md` — load this file when intake item I-T (tier choice) = 2 or 3.
 - `workflows/review-negotiation.md` — load this file when reviewing a counterparty's 2021/915-based draft, alongside `references/art28-3-checklist.md`.
