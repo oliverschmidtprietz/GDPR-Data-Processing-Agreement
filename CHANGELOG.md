@@ -6,6 +6,55 @@ Format: `## [vX.Y] — YYYY-MM-DD`
 
 ---
 
+## [v1.5] — 2026-09-24
+
+Level 1 (structural-tier) adoption of the portfolio standard
+(`docs/standards/PORTFOLIO-STANDARD.md`), per
+`docs/projects/gdpr-skills-marathon/SIX-SKILL-ADOPTION-BRIEF-2026-09-24.md`.
+No change to the mode router, Art. 28(3)/Art. 26 review logic, templates, or
+workflows.
+
+- **Native sidecar defined.** `references/dpa-art28-sidecar-schema.json` — a
+  minimal structural record of one run: instrument identity, router mode,
+  Art. 28(3)(a)–(h) coverage checklist, Annex 2 (TOMs) presence, transfer
+  tier + Clause-section integrity, and the outcome recommendation.
+- **Structural validator added.** `validator/validate.py` (PEP 723 launcher)
+  plus `validator/dpa_validator/` — a findings-based, never-raising rule
+  runner (`toms_validator`-shaped: frozen `Finding`, `@rule` registry,
+  fail-closed empty-registry guard `RUNNER-0`) implementing `SCHEMA-1`
+  (schema conformance), `CONS-1` (an `annex2_toms.present == false` /
+  `outcome.compliant == true` contradiction — Annex 2 absence is a stated
+  Art. 28(3)(c) failure per this skill's own hard rules), `TIER-1` (`tier ==
+  3` requires Sections I, II **and** III of the Clauses intact — the exact
+  class of defect v1.4 fixed in prose, now a machine rule), and `SRC-1`
+  (`sources.lock.json` coverage/freshness over `references/**/*.md`). 40
+  pytest cases, `must_pass`/`must_fail` fixtures.
+- **`--emit-core-artefact` adapter.** Projects the native sidecar plus the
+  live validation result into the portfolio `skill-artefact-1.1` shape.
+  `sources[]`/`handoffs[]`/`unknowns[]` are driven by the sidecar's own
+  fields for the run, not hard-coded empty: `sources[]` from which
+  `references/**/*.md` files this run's mode/tier/transfers actually load,
+  resolved against `sources.lock.json`; `handoffs[]` names `toms-art32` when
+  Annex 2 substance hasn't been confirmed; `unknowns[]` names `ropa` when
+  the optional `ropa_relevant` flag is true.
+- **`sources.lock.json` added**, covering all 8 `references/**/*.md` files.
+  `last_verified` is this skill's own most recent documented verification
+  per `CHANGELOG.md`: 2026-09-15 (this file's own v1.4 EUR-Lex re-check) for
+  the 2021/915 text, `tier-selection.md` and `sccs-module-guide.md`; the
+  2026-05-08 v0.9 import date, marked `confidence: medium`, for
+  `art28-3-checklist.md`, `common-defects.md`, `negotiation-fallbacks.md`
+  and `art26-joint-controller.md` — none of which `CHANGELOG.md` records a
+  later substantive touch to.
+- **`conformance.json` declared** — `tier: structural`, `standard_version:
+  1.4`. Verified via `scripts/check_conformance.py`: `CONFORMANT dpa-art28`.
+- **SKILL.md** gains a short "Machine-readable output" section pointing at
+  the validator invocation.
+
+**Status:** reviewed — additive machine-readable layer; no behavioral
+change to the human-facing review/draft/redline/JCA workflows.
+
+---
+
 ## [v1.4] — 2026-09-15
 
 Legal-drafting correction to the Tier 3 (Hybrid) template architecture, prompted by finding 6 of the external adversarial review (`docs/projects/gdpr-skills-marathon/ADVERSARIAL-REVIEW-2026-09-08.md`) against the EUR-Lex text of Commission Implementing Decision (EU) 2021/915.

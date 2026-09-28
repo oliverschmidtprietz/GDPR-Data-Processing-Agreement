@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oliverschmidtprietz/claude-skills/skills/dpa-art28/references/dpa-art28-sidecar-schema.json",
+  "title": "dpa-art28 native sidecar 1.0",
+  "description": "Structural record of one dpa-art28 run (review/draft/redline/JCA): which instrument, which router mode, the Art. 28(3)(a)-(h) coverage checklist, Annex 2 (TOM) presence/assessment, transfer-tier Clause-section integrity, and the outcome recommendation. Companion to SKILL.md's per-mode output structure (the human deliverable) — this does not restructure that deliverable, it is the machine-checkable summary of it.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "generated_at", "instrument", "mode", "outcome"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "instrument": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["id", "label", "type"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1,
+               "description": "Session-assigned stable identifier for the contract/instrument being reviewed or drafted (not a legal document number)."},
+        "label": {"type": "string", "minLength": 1},
+        "type": {"enum": ["DPA", "AVV", "JCA"]},
+        "language": {"enum": ["EN", "DE", "bilingual"]}
+      }
+    },
+    "mode": {"enum": ["REVIEW_QUICK", "REVIEW_NEG", "DRAFT", "REDLINE", "JOINT_CONTROLLER"]},
+    "tier": {"enum": [1, 2, 3],
+             "description": "Tier 1 Commercial / Tier 2 Strict / Tier 3 Hybrid (references/tier-selection.md). Only meaningful for DRAFT/REDLINE, or REVIEW_* of a 2021/915-based instrument."},
+    "roles": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "controller": {"type": "string"},
+        "processor": {"type": "string"}
+      }
+    },
+    "art28_coverage": {
+      "type": "array",
+      "description": "The Art. 28(3)(a)-(h) coverage table (SKILL.md REVIEW_QUICK output item 2 / REVIEW_NEG Annex review).",
+      "items": {
+        "type": "object",
+        "required": ["obligation", "status"],
+        "properties": {
+          "obligation": {"type": "string", "description": "e.g. 'chapeau', '(a)' .. '(h)'."},
+          "status": {"enum": ["PASS", "WEAK", "GAP", "DEFECT"]},
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "annex2_toms": {
+      "type": "object",
+      "description": "Contractual sufficiency of the Annex 2 (TOMs) annex — NOT its substantive appropriateness, which is toms-art32's assessment (SKILL.md 'Out of scope').",
+      "additionalProperties": true,
+      "properties": {
+        "present": {"type": "boolean"},
+        "toms_art32_assessed": {"type": "boolean",
+          "description": "Whether the annex's substance has actually been confirmed by a toms-art32 run (as opposed to merely present as boilerplate)."}
+      }
+    },
+    "transfers": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "in_scope": {"type": "boolean"},
+        "scc_module": {"type": "string"},
+        "sections_intact": {
+          "type": "object",
+          "description": "For a 2021/915-incorporated instrument: whether Sections I, II and III of the Clauses remain unmodified (Clause 2(a) bars replacing any Section; v1.4 fixed a defect where Tier 3 dropped Section III).",
+          "additionalProperties": false,
+          "properties": {
+            "I": {"type": "boolean"},
+            "II": {"type": "boolean"},
+            "III": {"type": "boolean"}
+          }
+        }
+      }
+    },
+    "ropa_relevant": {
+      "type": "boolean",
+      "description": "Whether this run's processing activities are ones the organisation's RoPA (Art. 30) should reflect. dpa-art28 never assesses RoPA itself (SKILL.md 'Out of scope') — this flag only signals whether the topic came up."
+    },
+    "outcome": {
+      "type": "object",
+      "required": ["compliant", "recommendation"],
+      "additionalProperties": true,
+      "properties": {
+        "compliant": {"type": "boolean"},
+        "recommendation": {"enum": ["sign", "sign_with_side_letter",
+                                     "do_not_sign_without_changes",
+                                     "escalate_to_review_neg", "n/a"]}
+      }
+    }
+  }
+}

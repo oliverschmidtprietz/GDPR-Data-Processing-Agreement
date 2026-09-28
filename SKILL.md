@@ -4,7 +4,7 @@ description: Use this skill when the user needs to review, draft, or redline a D
 metadata:
   author: Oliver Schmidt-Prietz
   license: AGPL-3.0
-  version: 1.4
+  version: 1.5
 ---
 
 # DPA Art. 28 GDPR — Review, Drafting & Redlining
@@ -147,6 +147,22 @@ When entering any mode, load files in this order:
 - **English output**: standard commercial-contract register; defined terms in **bold** at first use; active voice for obligations ("The Processor shall ...").
 - **No marketing language. No em dashes.** Active voice for processor obligations; passive only where standard contract idiom requires it.
 - **For OneZero Legal client deliverables**: end every output with a **Practitioner's note** paragraph — what the user should actually do next (sign / push back / request information / escalate).
+
+## Machine-readable output (portfolio standard, structural tier)
+
+Alongside the human deliverable, record the run's key facts (instrument, mode,
+Art. 28(3)(a)–(h) coverage, Annex 2 presence, tier/transfer-section integrity,
+outcome) as a native sidecar JSON file conforming to
+`references/dpa-art28-sidecar-schema.json`, then validate it:
+
+```bash
+uv run skills/dpa-art28/validator/validate.py <sidecar.json>
+```
+
+Add `--format json` for a findings-report-2.0 payload, or
+`--emit-core-artefact <path>` to also write the portfolio core-artefact
+projection (`skill-artefact-1.1.schema.json`) for sibling skills to consume.
+See `validator/README.md` for the rule set and fixture conventions.
 
 ## Out of scope (do not silently expand into these)
 

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-24T10:00:00Z",
+  "instrument": {
+    "id": "acme-processor-dpa-2026-09",
+    "label": "Acme GmbH / Contoso Processing Ltd — Data Processing Agreement",
+    "type": "DPA",
+    "language": "EN"
+  },
+  "mode": "REVIEW_QUIK",
+  "annex2_toms": {
+    "present": true,
+    "toms_art32_assessed": true
+  },
+  "outcome": {
+    "compliant": true,
+    "recommendation": "sign"
+  }
+}

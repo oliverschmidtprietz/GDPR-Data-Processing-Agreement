@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-24T11:00:00Z",
+  "instrument": {
+    "id": "globex-hybrid-dpa-2026-09",
+    "label": "Globex AG / Umbra Data Services Inc — Hybrid DPA with transfer-SCC Annex",
+    "type": "DPA",
+    "language": "bilingual"
+  },
+  "mode": "DRAFT",
+  "tier": 3,
+  "annex2_toms": {
+    "present": true,
+    "toms_art32_assessed": true
+  },
+  "transfers": {
+    "in_scope": true,
+    "scc_module": "module-2-controller-to-processor",
+    "sections_intact": {"I": true, "II": true, "III": false}
+  },
+  "outcome": {
+    "compliant": false,
+    "recommendation": "do_not_sign_without_changes"
+  }
+}

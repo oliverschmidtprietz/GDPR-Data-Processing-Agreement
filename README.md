@@ -26,6 +26,9 @@ DPA Art. 28 GDPR — review, drafting, and redlining of Data Processing Agreemen
 dpa-art28/
 ├── SKILL.md                                       # Main skill instructions (deploy this)
 ├── CHANGELOG.md                                   # Version history
+├── conformance.json                               # Portfolio standard conformance declaration (tier: structural)
+├── sources.lock.json                              # Reference-file provenance + freshness manifest
+├── validator/                                     # Structural validator for the native sidecar (validate.py, dpa_validator/, fixtures/)
 ├── references/
 │   ├── 2021-915-commission-text-en.md             # Commission Implementing Decision (EU) 2021/915 — EN
 │   ├── 2021-915-commission-text-de.md             # Commission Implementing Decision (EU) 2021/915 — DE
@@ -34,7 +37,8 @@ dpa-art28/
 │   ├── common-defects.md                          # Vendor-DPA defect catalog
 │   ├── negotiation-fallbacks.md                   # Fallback positions for contentious clauses
 │   ├── sccs-module-guide.md                       # International-transfer SCC integration
-│   └── tier-selection.md                          # Commercial / hybrid / strict tier helper
+│   ├── tier-selection.md                          # Commercial / hybrid / strict tier helper
+│   └── dpa-art28-sidecar-schema.json              # Native sidecar JSON Schema (portfolio standard)
 ├── templates/
 │   ├── dpa-commercial-de.md                       # Commercial DPA — DE
 │   ├── dpa-commercial-en.md                       # Commercial DPA — EN

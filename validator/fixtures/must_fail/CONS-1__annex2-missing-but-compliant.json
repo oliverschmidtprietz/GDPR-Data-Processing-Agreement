@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-24T10:00:00Z",
+  "instrument": {
+    "id": "acme-processor-dpa-2026-09",
+    "label": "Acme GmbH / Contoso Processing Ltd — Data Processing Agreement",
+    "type": "DPA",
+    "language": "EN"
+  },
+  "mode": "REVIEW_QUICK",
+  "art28_coverage": [
+    {"obligation": "chapeau", "status": "PASS"},
+    {"obligation": "(c)", "status": "GAP", "note": "Annex 2 (TOMs) not attached"}
+  ],
+  "annex2_toms": {
+    "present": false,
+    "toms_art32_assessed": false
+  },
+  "transfers": {
+    "in_scope": false
+  },
+  "outcome": {
+    "compliant": true,
+    "recommendation": "sign"
+  }
+}

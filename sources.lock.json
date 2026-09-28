@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-24",
+  "files": {
+    "references/2021-915-commission-text-en.md": {
+      "source_type": "primary-law",
+      "jurisdiction": "EU",
+      "url": "https://eur-lex.europa.eu/eli/dec_impl/2021/915/oj",
+      "last_verified": "2026-09-15",
+      "confidence": "high",
+      "owner": "oliverschmidtprietz",
+      "notes": "v1.4 (CHANGELOG.md) corrected the Section III clause-map entries and load-order notes against the EUR-Lex text of Commission Implementing Decision (EU) 2021/915, prompted by the external adversarial review's finding 6."
+    },
+    "references/2021-915-commission-text-de.md": {
+      "source_type": "primary-law",
+      "jurisdiction": "EU",
+      "url": "https://eur-lex.europa.eu/eli/dec_impl/2021/915/oj",
+      "last_verified": "2026-09-15",
+      "confidence": "high",
+      "owner": "oliverschmidtprietz",
+      "notes": "Same v1.4 EUR-Lex re-verification as the EN counterpart file."
+    },
+    "references/tier-selection.md": {
+      "source_type": "ai-drafted",
+      "jurisdiction": "EU",
+      "url": null,
+      "last_verified": "2026-09-15",
+      "confidence": "high",
+      "owner": "oliverschmidtprietz",
+      "notes": "v1.4 rebuilt the tier comparison table and decision tree for the Section-III-intact Hybrid architecture (Tier 3 now states a full, not partial, Art. 28(7) presumption)."
+    },
+    "references/sccs-module-guide.md": {
+      "source_type": "ai-drafted",
+      "jurisdiction": "EU",
+      "url": null,
+      "last_verified": "2026-09-15",
+      "confidence": "high",
+      "owner": "oliverschmidtprietz",
+      "notes": "v1.4 corrected the Clause 2(a)/2(b) labels (superseding the v1.3 2026-08-21 UK-adequacy-only fix, CF-21)."
+    },
+    "references/art28-3-checklist.md": {
+      "source_type": "ai-drafted",
+      "jurisdiction": "EU",
+      "url": null,
+      "last_verified": "2026-05-08",
+      "confidence": "medium",
+      "owner": "oliverschmidtprietz",
+      "notes": "Not independently re-verified since the initial v0.9 import (CHANGELOG.md never records a later touch to this file). Derived analysis of Art. 28(3) GDPR, which has not itself changed since 2016."
+    },
+    "references/common-defects.md": {
+      "source_type": "ai-drafted",
+      "jurisdiction": "EU",
+      "url": null,
+      "last_verified": "2026-05-08",
+      "confidence": "medium",
+      "owner": "oliverschmidtprietz",
+      "notes": "Not independently re-verified since the initial v0.9 import."
+    },
+    "references/negotiation-fallbacks.md": {
+      "source_type": "ai-drafted",
+      "jurisdiction": "EU",
+      "url": null,
+      "last_verified": "2026-05-08",
+      "confidence": "medium",
+      "owner": "oliverschmidtprietz",
+      "notes": "Not independently re-verified since the initial v0.9 import."
+    },
+    "references/art26-joint-controller.md": {
+      "source_type": "ai-drafted",
+      "jurisdiction": "EU",
+      "url": null,
+      "last_verified": "2026-05-08",
+      "confidence": "medium",
+      "owner": "oliverschmidtprietz",
+      "notes": "Not independently re-verified since the initial v0.9 import."
+    }
+  }
+}
