@@ -10,7 +10,7 @@
   "mode": "REVIEW_QUICK",
   "art28_coverage": [
     {"obligation": "chapeau", "status": "PASS"},
-    {"obligation": "(c)", "status": "GAP", "note": "Annex 2 (TOMs) not attached"}
+    {"obligation": "(c)", "status": "WEAK", "note": "Annex 2 (TOMs) not attached"}
   ],
   "annex2_toms": {
     "present": false,

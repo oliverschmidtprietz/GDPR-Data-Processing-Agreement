@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-02T10:00:00Z",
+  "instrument": {
+    "id": "orrery-processor-dpa-2026-10",
+    "label": "Orrery Payments Ltd / Caldera Cloud Services Inc — Data Processing Agreement",
+    "type": "DPA",
+    "language": "EN"
+  },
+  "mode": "REVIEW_QUICK",
+  "art28_coverage": [
+    {"obligation": "chapeau", "status": "PASS"},
+    {"obligation": "(c)", "status": "WEAK", "note": "Annex 2 not yet provided by processor"}
+  ],
+  "transfers": {"in_scope": false},
+  "outcome": {"compliant": false, "recommendation": "escalate_to_review_neg"}
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-02T10:00:00Z",
+  "instrument": {
+    "id": "velden-processor-dpa-2026-10",
+    "label": "Velden Logistics GmbH / Quorum Data Services Ltd — Data Processing Agreement",
+    "type": "DPA",
+    "language": "EN"
+  },
+  "mode": "REVIEW_QUICK",
+  "roles": {"controller": "Velden Logistics GmbH", "processor": "Quorum Data Services Ltd"},
+  "art28_coverage": [
+    {"obligation": "chapeau", "status": "PASS"},
+    {"obligation": "(a)", "status": "PASS"},
+    {"obligation": "(b)", "status": "DEFECT", "note": "processor processes outside documented instructions"},
+    {"obligation": "(c)", "status": "GAP", "note": "no confidentiality undertaking"},
+    {"obligation": "(d)", "status": "PASS"},
+    {"obligation": "(e)", "status": "PASS"},
+    {"obligation": "(f)", "status": "PASS"},
+    {"obligation": "(g)", "status": "PASS"},
+    {"obligation": "(h)", "status": "DEFECT", "note": "no audit rights whatsoever"}
+  ],
+  "annex2_toms": {"present": true, "toms_art32_assessed": true},
+  "transfers": {"in_scope": false},
+  "outcome": {"compliant": true, "recommendation": "sign"}
+}

@@ -4,7 +4,7 @@ description: Use this skill when the user needs to review, draft, or redline a D
 metadata:
   author: Oliver Schmidt-Prietz
   license: AGPL-3.0
-  version: 1.5
+  version: 1.6
 ---
 
 # DPA Art. 28 GDPR — Review, Drafting & Redlining
@@ -51,7 +51,7 @@ Regardless of mode:
 3. **Language** — DE / EN / bilingual? Default: match the language of the source document; if drafting from scratch, ASK.
 4. **Tier (DRAFT and REDLINE modes)** — Tier 1 Commercial / Tier 2 Strict (2021/915 incorporated unmodified, minimal commercial overlay) / Tier 3 Hybrid (2021/915 incorporated unmodified — Sections I, II AND III — with an extensive commercial framework layer sitting outside the Clauses). Load `references/tier-selection.md` and walk the decision tree if the user has not pre-selected. For REVIEW modes, the tier is whatever the source document is — identify it and continue.
 5. **Processing scenario** — Concrete description: subject matter, nature, purpose, data categories, data subjects, duration. Without this, drafting is impossible and review is shallow. If missing, REQUEST it before proceeding.
-6. **International transfers** — Will personal data be transferred outside the EEA, or accessed from outside the EEA? If yes, load `references/sccs-module-guide.md` and flag SCC requirements early. Note: 2021/915 (Tiers 2/3) does not by itself cover transfers — pair with 2021/914 if needed.
+6. **International transfers** — Will personal data be transferred outside the EEA, or accessed from outside the EEA? If yes, load `references/sccs-module-guide.md` and flag SCC requirements early. Note: 2021/915 (Tiers 2/3) does not by itself cover transfers — pair with 2021/914 if needed. **Also confirm which transfer-law regime applies** — if the exporter is UK-established, see the UK GDPR / IDTA hard rule above before drafting any SCC language.
 7. **Sub-processors** — General authorization, specific authorization, or none? This affects clause structure and risk profile. For Tiers 2/3, this maps to Clause 7.7 Option 1/2 of the SCCs.
 8. **Special categories / Art. 9 / Art. 10 data** — If yes, enhanced TOMs and stricter purpose limitation needed; flag at intake.
 9. **Free-text / unstructured content in the processing** — For Annex I / the categories-of-data description, ask: (1) Which free-text or unstructured inputs does the processing include (ticket bodies, chat, call notes, comments, uploads, recordings)? (2) Does any control actually prevent or catch special-category content in them (input filtering, redaction, a review step, trained staff with a check)? A policy alone is not a control. (3) Has special-category content (health, religious or philosophical belief, trade-union membership, sex life or orientation, racial or ethnic origin, political opinion, genetic or biometric data, criminal data) ever been observed in them in practice? Rule: if such channels accept input from data subjects or staff and no control catches sensitive content, treat them as potentially containing special-category data and describe them as such in Annex I / the categories of data, recording observed frequency.
@@ -63,6 +63,7 @@ Regardless of mode:
 - **Never omit Annex 2 (TOMs).** A DPA without specified TOMs fails Art. 28(3)(c) + Art. 32. If the user does not have TOMs ready, advise them to obtain the processor's TOMs document or use the template scaffold as a starting point, but flag this as an open item — never sign-off on an empty Annex 2. **Producing the TOM content itself is the `toms-art32` skill's job**, not this one: route there for the substance and bring the annex back into the instrument (see *Out of scope*).
 - **Sub-processor list (Annex 3) cannot be empty if sub-processors exist.** "None at signing" is acceptable only if literally none; otherwise list them by name, location, processing activity, and safeguards.
 - **International-transfer language is binding only if SCCs are actually executed.** Do not draft "the Parties agree to use the SCCs" without specifying module, signature mechanism (separate signature vs. docking via DPA), and Annexes I.A / I.B / I.C / II / III.
+- **A UK-to-UK or UK-exporter restricted transfer is a UK GDPR matter, not an EU-instrument one — STOP and flag, do not draft EU SCCs.** If the party making the restricted transfer (the "exporter") is established in the UK and the transfer is governed by UK data protection law (Data Protection Act 2018 + UK GDPR) rather than EU GDPR, the EU Commission Decisions 2021/914/2021/915 texts in this skill's references do not apply. The applicable ICO-issued instruments are the UK International Data Transfer Agreement (IDTA) or the UK Addendum to the EU SCCs (both laid before Parliament under DPA 2018 s.119A on 2 February 2022, in force 21 March 2022) — this skill does not carry those templates. Surface that this is outside the EU-SCC playbook and route the user to UK-specific drafting / the ICO's international-transfers guidance rather than silently substituting an EU SCC module. (The ICO has signalled a 2026 update to both instruments following the Data (Use and Access) Act 2025 — verify the current version in force at ico.org.uk before relying on either as final.)
 - **Joint-controller scenarios are NOT processor scenarios.** If the screen flags JC, switch to `JOINT_CONTROLLER` mode. Papering a JC arrangement as a DPA is a substantive defect, not a drafting choice.
 - **Never advise "sign as is" after a quick review unless every Art. 28(3) item is PASS, no transfers in scope, and the user understands the residual liability allocation.** Default posture is "sign with documented residual risk" or "request changes".
 - **Bilingual output ≠ machine translation.** When producing parallel DE/EN, use German legal-style register on the DE side ("der Verantwortliche", "der Auftragsverarbeiter", "Sie"-form for declarations) and standard commercial register on the EN side. Do not back-translate one from the other.
@@ -163,6 +164,13 @@ Add `--format json` for a findings-report-2.0 payload, or
 `--emit-core-artefact <path>` to also write the portfolio core-artefact
 projection (`skill-artefact-1.1.schema.json`) for sibling skills to consume.
 See `validator/README.md` for the rule set and fixture conventions.
+
+**A validator pass means the sidecar is internally consistent and complete
+against these structural rules — it is not a check that the underlying legal
+analysis is correct.** The validator cannot assess whether a `PASS` verdict on
+a given Art. 28(3) obligation reflects the clause's actual substance (see
+`validator/README.md` for exactly what it does and does not check); that
+judgement remains the reviewing lawyer's.
 
 ## Out of scope (do not silently expand into these)
 

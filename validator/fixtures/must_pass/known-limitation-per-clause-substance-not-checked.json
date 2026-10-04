@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-02T10:00:00Z",
+  "instrument": {
+    "id": "calloway-processor-dpa-2026-10",
+    "label": "Calloway Retail Group / Thistledown Fulfilment Ltd — Data Processing Agreement (P5 known-limitation regression lock)",
+    "type": "DPA",
+    "language": "EN"
+  },
+  "mode": "REVIEW_QUICK",
+  "art28_coverage": [
+    {"obligation": "(d)", "status": "PASS", "note": "general sub-processor authorization granted, no objection right given to controller"},
+    {"obligation": "(h)", "status": "PASS", "note": "audit rights waived in favor of processor self-certification only"}
+  ],
+  "annex2_toms": {"present": true, "toms_art32_assessed": true},
+  "transfers": {"in_scope": false},
+  "outcome": {"compliant": true, "recommendation": "sign"}
+}

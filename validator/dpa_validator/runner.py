@@ -20,7 +20,7 @@ from .registry import RULES
 # it, and it moves on its own cadence — bumping the skill's vX.Y does not bump this, and vice
 # versa. (It is the one place a three-part number is used, by convention for a code artefact;
 # the skill itself follows the repo's two-digit vX.Y SemLite.)
-VALIDATOR_VERSION = "v1.0.0"
+VALIDATOR_VERSION = "v1.1.0"
 REPORT_SCHEMA_VERSION = "2.0"   # portfolio findings-report format (docs/standards/)
 SKILL_NAME = "dpa-art28"
 _BLOCKING = {"rejection"}

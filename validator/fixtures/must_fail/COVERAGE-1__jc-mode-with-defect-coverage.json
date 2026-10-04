@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-02T10:00:00Z",
+  "instrument": {
+    "id": "meridian-jca-2026-10",
+    "label": "Meridian Hospital Trust / Lantern Research Foundation — Joint Controller Arrangement",
+    "type": "JCA",
+    "language": "EN"
+  },
+  "mode": "JOINT_CONTROLLER",
+  "art28_coverage": [
+    {"obligation": "(h)", "status": "DEFECT", "note": "irrelevant lens for JCA but still recorded"}
+  ],
+  "annex2_toms": {"present": true, "toms_art32_assessed": true},
+  "transfers": {"in_scope": false},
+  "outcome": {"compliant": true, "recommendation": "sign"}
+}

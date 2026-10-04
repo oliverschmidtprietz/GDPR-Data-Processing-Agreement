@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-02T10:00:00Z",
+  "instrument": {
+    "id": "palisade-strict-dpa-2026-10",
+    "label": "Palisade Health Group / Arcway Cloud Ltd — Strict DPA",
+    "type": "DPA",
+    "language": "EN"
+  },
+  "mode": "REVIEW_QUICK",
+  "tier": 2,
+  "art28_coverage": [
+    {"obligation": "chapeau", "status": "PASS"}
+  ],
+  "transfers": {"in_scope": true, "scc_module": ""},
+  "annex2_toms": {"present": true, "toms_art32_assessed": true},
+  "outcome": {"compliant": true, "recommendation": "sign"}
+}

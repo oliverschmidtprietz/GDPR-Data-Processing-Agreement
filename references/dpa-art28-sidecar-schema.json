@@ -60,7 +60,11 @@
       "additionalProperties": true,
       "properties": {
         "in_scope": {"type": "boolean"},
-        "scc_module": {"type": "string"},
+        "scc_module": {"type": "string", "minLength": 1},
+        "mechanism": {
+          "enum": ["scc", "dpf", "adequacy_decision", "bcr", "art49_derogation"],
+          "description": "Additive, optional (break-it fix 2026-10-02). The transfer mechanism actually relied on when transfers.in_scope is true. Only needed when the mechanism is NOT SCCs (dpf / adequacy_decision / bcr / art49_derogation) — when SCCs ARE the mechanism, record scc_module instead (or in addition, as 'scc')."
+        },
         "sections_intact": {
           "type": "object",
           "description": "For a 2021/915-incorporated instrument: whether Sections I, II and III of the Clauses remain unmodified (Clause 2(a) bars replacing any Section; v1.4 fixed a defect where Tier 3 dropped Section III).",

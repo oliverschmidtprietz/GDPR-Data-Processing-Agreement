@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-02T10:00:00Z",
+  "instrument": {
+    "id": "wrenfield-processor-dpa-2026-10",
+    "label": "Wrenfield Logistics GmbH / Dovetail Data Services Ltd — Data Processing Agreement",
+    "type": "DPA",
+    "language": "EN"
+  },
+  "mode": "REVIEW_QUICK",
+  "art28_coverage": [
+    {"obligation": "chapeau", "status": "PASS"},
+    {"obligation": "(h)", "status": "GAP", "note": "audit scope undefined, addressed in side letter"}
+  ],
+  "annex2_toms": {"present": true, "toms_art32_assessed": true},
+  "transfers": {"in_scope": false},
+  "outcome": {"compliant": false, "recommendation": "sign_with_side_letter"}
+}

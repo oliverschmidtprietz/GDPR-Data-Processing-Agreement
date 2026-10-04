@@ -6,6 +6,109 @@ Format: `## [vX.Y] — YYYY-MM-DD`
 
 ---
 
+## [v1.6] — 2026-10-02
+
+Validator hardening from adversarial break-it test 2026-10-02 (9 validator
+probes + 4 CLI crash probes against v1.5). No change to the mode router,
+Art. 28(3)/Art. 26 review logic, templates, or workflow output structures
+beyond one new hard rule and one intake pointer.
+
+- **CLI fail-closed fix.** `validator/validate.py`'s file-read/parse step
+  previously raised a raw traceback on a missing file, an unreadable file, a
+  directory given as the path, invalid UTF-8, invalid JSON syntax, and
+  (combined with `--emit-core-artefact`) a `TypeError` on a well-formed but
+  non-object top-level JSON value (`{**sidecar, ...}` dict-unpacking a
+  list/string/etc., since that line sat outside the adapter's own
+  try/except). All six now produce exactly one clean `INPUT-0` rejection
+  finding, `status: "failed"`, exit 1 — through the same `--format
+  human|json` and `--emit-core-artefact` paths a normal run uses, never a
+  traceback. 12 new `validator/test_cli.py` cases; crash probes copied into
+  `validator/fixtures/malformed_input/`.
+- **New consistency rule `COVERAGE-1` (rejection).** `art28_coverage[]`
+  having any `GAP`/`DEFECT` entry anywhere, or being missing/empty entirely,
+  can no longer coexist with a positive outcome (`outcome.compliant == true`
+  and/or `recommendation == "sign"`) — previously nothing read
+  `art28_coverage[]` at all, so a sidecar could report a `DEFECT` on every
+  obligation and still pass as `compliant: true, recommendation: "sign"`.
+  Mirrors `workflows/review-quick.md` Step 7's own verdict-pattern table,
+  which never reaches a bare "sign" with any GAP/DEFECT present.
+- **New consistency rule `TRANSFER-1` (rejection).** `transfers.in_scope ==
+  true` with no identified mechanism (`scc_module` empty/missing and no
+  non-SCC mechanism) can no longer coexist with a positive outcome, at any
+  tier (SKILL.md's existing hard rule on binding transfer language, now
+  machine-checked). A legitimate DPF/adequacy-based transfer — which never
+  used `scc_module` to begin with — is not a false positive: the sidecar
+  schema gained an additive, optional `transfers.mechanism` enum (`scc` /
+  `dpf` / `adequacy_decision` / `bcr` / `art49_derogation`) so a non-SCC
+  mechanism can be recorded honestly.
+- **`scc_module` now requires `minLength: 1`** in
+  `dpa-art28-sidecar-schema.json` — an empty string previously satisfied
+  `{"type": "string"}` and was silently treated as "mechanism identified".
+- **Omission-bypass fixes on `CONS-1` and `TIER-1`.** Both rules previously
+  only looked at an explicit bad *value* (`annex2_toms.present == false`;
+  `transfers.sections_intact.{I,II,III} == false`) and returned silently if
+  the field was missing altogether — so a sidecar could omit `annex2_toms`
+  entirely, or omit `sections_intact` on a Tier 3 instrument, and still
+  report `compliant: true, recommendation: "sign"` uncontested. Both rules
+  now also reject when the field is **absent** and the outcome is positive,
+  per the fix brief's general rule: a missing load-bearing field is a
+  failure of a positive claim, not "nothing to check".
+- **New consistency rule `ANNEX2-2` (warning, not rejection).**
+  `annex2_toms.present == true` with `toms_art32_assessed == false`,
+  alongside `outcome.compliant == true`, is flagged as an open handoff to
+  `toms-art32` rather than blocked — deliberately a warning, not a
+  rejection, because dpa-art28 certifies the *instrument's* contractual
+  sufficiency (the annex is specified), not the Annex 2 substance's Art.
+  32(1) appropriateness, which is `toms-art32`'s job per this skill's own
+  "Out of scope" section. A rejection here would contradict that framing.
+- **Disclosed, not fixed: per-clause substance is not machine-checkable.**
+  A sidecar can legitimately mark obligation `(d)` or `(h)` `PASS` even
+  where the underlying clause lacks real substance (e.g. no sub-processor
+  objection right, nominal-only audit rights) — the validator has no way to
+  see clause text, only the status a human/Claude already assigned.
+  `validator/README.md` now states this plainly, with a regression-lock
+  fixture (`fixtures/must_pass/known-limitation-per-clause-substance-not-checked.json`)
+  proving the gap is intentional and disclosed, not an oversight. No new
+  schema field was added for this — it is out of scope for a structural
+  validator by design.
+- **New hard rule: UK-to-UK / UK-exporter transfers are a UK GDPR matter.**
+  SKILL.md gained an explicit STOP rule: when the restricted-transfer
+  exporter is UK-established, this skill's EU Commission 2021/914/2021/915
+  references do not apply — the ICO-issued UK International Data Transfer
+  Agreement (IDTA) or the UK Addendum to the EU SCCs is the relevant
+  instrument (both laid before Parliament under DPA 2018 s.119A on 2
+  February 2022, in force 21 March 2022; verified at ico.org.uk 2026-10-02,
+  including that the ICO has signalled a 2026 update to both following the
+  Data (Use and Access) Act 2025, not yet published as of this check).
+  Surface and route rather than silently drafting EU SCCs for a UK-governed
+  transfer. Intake item 6 now points to this rule.
+- **SKILL.md / `validator/README.md` framing.** Both now state plainly that
+  a validator pass certifies internal consistency and completeness against
+  the structural rules, not that the underlying legal analysis is correct.
+- **18 new/updated fixtures** across `fixtures/must_pass/`,
+  `fixtures/must_fail/`, the new `fixtures/must_warn/`, and the new
+  `fixtures/malformed_input/`; one existing `must_fail` fixture per CONS-1
+  and one per SCHEMA-1 gained a non-triggering `art28_coverage`/`transfers`
+  so they keep isolating exactly one rule now that COVERAGE-1/TRANSFER-1
+  exist. 68 validator tests total (was 40 at v1.5).
+- **Sidecar schema stays `"schema_version": "1.0"`** — the two new fields
+  (`transfers.mechanism`, `scc_module`'s `minLength`) are additive/backward
+  compatible and every existing fixture still validates unchanged; bumping
+  the data-format version was judged unnecessary and would have forced an
+  unrelated edit to every already-committed fixture for no behavioural
+  gain.
+- **Validator tool version** (`VALIDATOR_VERSION`, independent of this
+  skill's own version) bumped `v1.0.0` → `v1.1.0` for the rule-set and
+  fail-closed changes above.
+
+**Status:** reviewed — adversarially probed (break-it test 2026-10-02,
+LEDGER.md `dpa-art28` lines), all 9 validator-hole probes and 4 CLI-crash
+probes now produce the correct finding/clean failure instead of a false
+pass or a traceback. No false positives: every pre-existing and newly added
+`must_pass` fixture still passes.
+
+---
+
 ## [v1.5] — 2026-09-24
 
 Level 1 (structural-tier) adoption of the portfolio standard
