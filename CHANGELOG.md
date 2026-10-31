@@ -6,6 +6,24 @@ Format: `## [vX.Y] — YYYY-MM-DD`
 
 ---
 
+## [v1.7] — 2026-10-31
+
+Bundled tests made portable to the standalone public copy (`scripts/stage-public-copy.sh`
++ `scripts/check-public-portability.sh`). No change to the mode router, Art. 28(3)/Art.
+26 review logic, templates, or workflow output structures.
+
+- **`validator/dpa_validator/_schema_paths.py` (new) exposes `find_schema()`**, which
+  locates a shared portfolio schema (`docs/standards/schemas/*.schema.json`) by walking
+  up from the file's own location — works identically whether the schemas sit at the
+  monorepo root or at the root of a flat public copy (the staging script now copies
+  them there). `validator/dpa_validator/test_core_artefact.py` and
+  `validator/dpa_validator/test_runner.py` use it instead of a hard-coded `REPO_ROOT`,
+  which only resolved correctly inside the monorepo.
+- **`validator/README.md` quick-start rewritten** to run from the skill's own root
+  (`skills/dpa-art28/` in the monorepo, or the repository root in a standalone copy)
+  instead of hard-coding `skills/dpa-art28/...` paths that don't exist outside the
+  monorepo.
+
 ## [v1.6] — 2026-10-02
 
 Validator hardening from adversarial break-it test 2026-10-02 (9 validator

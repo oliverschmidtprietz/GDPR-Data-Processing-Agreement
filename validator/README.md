@@ -22,19 +22,24 @@ sidecar's own conclusions.
 
 ## Quick start
 
+Run these from this skill's own root — `skills/dpa-art28/` in the private
+monorepo, or the repository root in a standalone/public copy of this skill:
+
 ```bash
 # Validate a sidecar (internal mode, human-readable output)
-uv run skills/dpa-art28/validator/validate.py path/to/sidecar.json
+uv run validator/validate.py path/to/sidecar.json
 
 # JSON findings-report-2.0 output
-uv run skills/dpa-art28/validator/validate.py path/to/sidecar.json --format json
+uv run validator/validate.py path/to/sidecar.json --format json
 
 # Also emit the portfolio core-artefact projection
-uv run skills/dpa-art28/validator/validate.py path/to/sidecar.json --emit-core-artefact /tmp/artefact.json
+uv run validator/validate.py path/to/sidecar.json --emit-core-artefact /tmp/artefact.json
 
 # Run the test suite
-uv run --with pytest --with jsonschema python -m pytest skills/dpa-art28/validator -q
+uv run --with pytest --with jsonschema python -m pytest validator -q
 ```
+
+(From the monorepo root instead, prefix each path with `skills/dpa-art28/`.)
 
 ## Findings are the only output — rules never raise
 

@@ -4,7 +4,7 @@ description: Use this skill when the user needs to review, draft, or redline a D
 metadata:
   author: Oliver Schmidt-Prietz
   license: AGPL-3.0
-  version: 1.6
+  version: 1.7
 ---
 
 # DPA Art. 28 GDPR — Review, Drafting & Redlining
